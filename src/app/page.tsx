@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
+import Image from "next/image";
 
 export default function SplashScreen() {
   const router = useRouter();
@@ -23,37 +24,68 @@ export default function SplashScreen() {
   }, [router]);
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-dvh bg-white px-8">
-      {/* Mascot placeholder - Replace with your FixIt mascot image */}
-      <div className="flex-1 flex flex-col items-center justify-center">
-        <div className="w-64 h-64 flex items-center justify-center mb-6">
-          {/* TODO: Replace with <Image src="/images/fixit-mascot.svg" ... /> */}
-          <svg viewBox="0 0 200 200" className="w-full h-full">
-            <circle cx="100" cy="80" r="30" fill="#FFD5B8" />
-            <rect x="70" y="105" width="60" height="50" rx="5" fill="#F97316" />
-            <rect x="75" y="95" width="50" height="15" rx="3" fill="#FB9F4F" />
-            <circle cx="100" cy="45" r="22" fill="#E5E7EB" />
-            <rect x="78" y="35" width="44" height="15" rx="3" fill="white" />
-            <rect x="55" y="115" width="25" height="40" rx="3" fill="#FFD5B8" transform="rotate(-20 55 115)" />
-            <rect x="120" y="110" width="25" height="40" rx="3" fill="#FFD5B8" transform="rotate(30 120 110)" />
-            <rect x="35" y="125" width="18" height="12" rx="3" fill="#D65510" />
-            <rect x="80" y="155" width="15" height="35" rx="3" fill="#F97316" />
-            <rect x="105" y="155" width="15" height="35" rx="3" fill="#F97316" />
-            <circle cx="90" cy="75" r="3" fill="#1F2937" />
-            <circle cx="110" cy="75" r="3" fill="#1F2937" />
-            <path d="M 93 85 Q 100 92 107 85" stroke="#1F2937" strokeWidth="2" fill="none" />
-          </svg>
+    <div className="flex flex-col items-center justify-center min-h-dvh bg-white px-8 relative overflow-hidden">
+      {/* Background subtle animation */}
+      <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-tint-100/10" />
+
+      {/* Main Content */}
+      <div className="flex-1 flex flex-col items-center justify-center relative z-10">
+        {/* Mascot Image */}
+        <div
+          className="w-64 h-64 flex items-center justify-center mb-8 relative"
+          style={{
+            animation: "fadeInUp 0.6s ease-out, pulse 2s ease-in-out infinite"
+          }}
+        >
+          <Image
+            src="/images/mascot.svg"
+            alt="FixIt Mascot"
+            width={256}
+            height={256}
+            priority
+            className="w-full h-full object-contain drop-shadow-xl"
+          />
         </div>
 
-        {/* Logo text - Switzer Black Italic 128px equivalent */}
-        <div className="logo-text text-6xl tracking-tight">
-          <span className="text-[#1F2937]">Fix</span>
-          <span className="text-primary">It</span>
+        {/* Logo with App Icon */}
+        <div
+          className="flex items-center gap-3 mb-2"
+          style={{
+            animation: "fadeInUp 0.6s ease-out 0.2s both"
+          }}
+        >
+          <Image
+            src="/images/appicon.svg"
+            alt="FixIt Icon"
+            width={48}
+            height={48}
+            priority
+            className="drop-shadow-lg"
+          />
+          <div className="logo-text text-6xl tracking-tight">
+            <span className="text-[#1F2937]">Fix</span>
+            <span className="text-primary">It</span>
+          </div>
         </div>
+
+        {/* Tagline */}
+        <p
+          className="text-text-secondary text-sm font-medium"
+          style={{
+            animation: "fadeInUp 0.6s ease-out 0.3s both"
+          }}
+        >
+          Connect. Fix. Earn.
+        </p>
       </div>
 
-      {/* Loading text */}
-      <div className="pb-16 flex items-center gap-2 text-sm">
+      {/* Loading indicator */}
+      <div
+        className="pb-16 flex items-center gap-2 text-sm relative z-10"
+        style={{
+          animation: "fadeInUp 0.6s ease-out 0.4s both"
+        }}
+      >
         <svg className="w-5 h-5 animate-spin text-primary" viewBox="0 0 24 24" fill="none">
           <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="2" opacity="0.3" />
           <path d="M12 2a10 10 0 0 1 10 10" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />

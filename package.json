@@ -6,9 +6,18 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "mobile:build": "next build && npx cap sync",
+    "mobile:ios": "next build && npx cap sync && npx cap open ios",
+    "mobile:android": "next build && npx cap sync && npx cap open android"
   },
   "dependencies": {
+    "@capacitor/android": "^8.1.0",
+    "@capacitor/cli": "^8.1.0",
+    "@capacitor/core": "^8.1.0",
+    "@capacitor/ios": "^8.1.0",
+    "@hugeicons/core-free-icons": "^3.1.1",
+    "@hugeicons/react": "^1.1.5",
     "next": "16.1.6",
     "react": "19.2.3",
     "react-dom": "19.2.3"

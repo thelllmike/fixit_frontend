@@ -1,26 +1,160 @@
 @import "tailwindcss";
 
+/* Switzer font from Fontshare - weights 400 (Regular) and 900 (Black/Black Italic) */
+@font-face {
+  font-family: 'Switzer';
+  src: url('https://api.fontshare.com/v2/css?f[]=switzer@400&display=swap') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Switzer';
+  src: url('https://api.fontshare.com/v2/css?f[]=switzer@900&display=swap') format('woff2');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Switzer';
+  src: url('https://api.fontshare.com/v2/css?f[]=switzer@900i&display=swap') format('woff2');
+  font-weight: 900;
+  font-style: italic;
+  font-display: swap;
+}
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Primary */
+  --primary: #F97316;
+  --primary-dark: #D65510;
+
+  /* Tints */
+  --tint-100: #FEEED0;
+  --tint-200: #FED7A1;
+  --tint-300: #FDBB72;
+  --tint-400: #FB9F4F;
+
+  /* Shades */
+  --shade-100: #D65510;
+  --shade-200: #B33C0B;
+  --shade-300: #902707;
+  --shade-400: #771804;
+
+  /* Neutrals */
+  --white: #FFFFFF;
+  --gray-100: #F3F4F6;
+  --gray-800: #1F2937;
+  --blue-900: #1F3A8A;
+
+  /* Semantic */
+  --background: #F3F4F6;
+  --surface: #FFFFFF;
+  --text-primary: #1F2937;
+  --text-secondary: #6B7280;
+  --text-muted: #9CA3AF;
+  --border: #E5E7EB;
+  --star: #FFB800;
 }
 
 @theme inline {
+  --color-primary: var(--primary);
+  --color-primary-dark: var(--primary-dark);
+  --color-tint-100: var(--tint-100);
+  --color-tint-200: var(--tint-200);
+  --color-tint-300: var(--tint-300);
+  --color-tint-400: var(--tint-400);
+  --color-shade-100: var(--shade-100);
+  --color-shade-200: var(--shade-200);
+  --color-shade-300: var(--shade-300);
+  --color-shade-400: var(--shade-400);
   --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+  --color-surface: var(--surface);
+  --color-foreground: var(--text-primary);
+  --color-text-secondary: var(--text-secondary);
+  --color-text-muted: var(--text-muted);
+  --color-border: var(--border);
+  --color-star: var(--star);
+  --color-blue-900: var(--blue-900);
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --font-switzer: 'Switzer', sans-serif;
+  --font-inter: 'Inter', sans-serif;
 }
 
 body {
   background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  color: var(--text-primary);
+  font-family: 'Inter', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Subtle grain texture for premium feel */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.03'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 9999;
+  mix-blend-mode: overlay;
+}
+
+/* Mobile app container */
+.app-container {
+  max-width: 430px;
+  margin: 0 auto;
+  min-height: 100dvh;
+  background: var(--background);
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* Hide scrollbar for horizontal scroll sections */
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Logo font style */
+.logo-text {
+  font-family: 'Switzer', sans-serif;
+  font-weight: 900;
+  font-style: italic;
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.8;
+  }
 }

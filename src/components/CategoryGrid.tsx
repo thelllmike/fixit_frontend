@@ -39,23 +39,43 @@ export default function CategoryGrid() {
           <Link
             key={label}
             href={`/category/${label.toLowerCase()}`}
-            className="flex flex-col items-center gap-2 group"
+            className="group"
             style={{
               animation: `fadeInUp 0.4s ease-out ${index * 0.05}s both`,
             }}
           >
-            <div className="w-16 h-16 rounded-2xl bg-white/95 backdrop-blur-sm flex items-center justify-center shadow-lg shadow-black/10 transition-all group-active:scale-95 group-active:shadow-md">
+            <div
+              className="flex flex-col items-center justify-center transition-all group-active:scale-95"
+              style={{
+                width: 62,
+                minWidth: 62,
+                gap: 4,
+                borderRadius: 8,
+                padding: "8px 12px",
+                background: "#F3F4F6",
+              }}
+            >
               <Image
                 src={icon}
                 alt={label}
-                width={40}
-                height={40}
+                width={32}
+                height={32}
                 className="object-contain"
               />
+              <span
+                style={{
+                  fontFamily: "Inter, sans-serif",
+                  fontWeight: 400,
+                  fontSize: 8,
+                  lineHeight: "100%",
+                  letterSpacing: "0%",
+                  textAlign: "center",
+                  color: "#1F2937",
+                }}
+              >
+                {label}
+              </span>
             </div>
-            <span className="text-[10px] font-medium text-white text-center leading-tight drop-shadow-sm">
-              {label}
-            </span>
           </Link>
         ))}
       </div>

@@ -30,38 +30,30 @@ export default function SplashScreen() {
 
       {/* Main Content */}
       <div className="flex-1 flex flex-col items-center justify-center relative z-10">
-        {/* Mascot Image */}
+        {/* App Icon */}
         <div
-          className="w-64 h-64 flex items-center justify-center mb-8 relative"
+          className="w-40 h-40 flex items-center justify-center mb-8 relative"
           style={{
             animation: "fadeInUp 0.6s ease-out, pulse 2s ease-in-out infinite"
           }}
         >
           <Image
             src="/images/mascot.svg"
-            alt="FixIt Mascot"
-            width={256}
-            height={256}
+            alt="FixIt Icon"
+            width={160}
+            height={160}
             priority
             className="w-full h-full object-contain drop-shadow-xl"
           />
         </div>
 
-        {/* Logo with App Icon */}
+        {/* Logo Text */}
         <div
           className="flex items-center gap-3 mb-2"
           style={{
             animation: "fadeInUp 0.6s ease-out 0.2s both"
           }}
         >
-          <Image
-            src="/images/appicon.svg"
-            alt="FixIt Icon"
-            width={48}
-            height={48}
-            priority
-            className="drop-shadow-lg"
-          />
           <div className="logo-text text-6xl tracking-tight">
             <span className="text-[#1F2937]">Fix</span>
             <span className="text-primary">It</span>

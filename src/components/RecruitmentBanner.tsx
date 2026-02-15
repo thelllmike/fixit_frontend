@@ -3,50 +3,89 @@ import Image from "next/image";
 
 export default function RecruitmentBanner() {
   return (
-    <section className="px-6">
-      <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-tint-100 via-tint-200 to-tint-100 shadow-xl shadow-primary/10 border border-primary/10">
-        {/* Background Image with Overlay */}
-        <div className="absolute inset-0 opacity-30">
+    <section className="px-4">
+      <div
+        className="relative overflow-hidden flex"
+        style={{
+          width: "100%",
+          maxWidth: 380,
+          height: 106,
+          borderRadius: 8,
+          background: "#FEEED0",
+          margin: "0 auto",
+        }}
+      >
+        {/* Left - Worker photo filling the box */}
+        <div className="relative flex-shrink-0" style={{ width: 120, height: 106 }}>
           <Image
             src="/images/baner.jpeg"
             alt="Skilled worker"
             fill
-            className="object-cover object-left"
+            className="object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-tint-100/95 via-tint-100/80 to-tint-100/60" />
         </div>
 
-        {/* Content */}
-        <div className="relative px-6 py-6 flex items-center gap-5">
-          {/* Left side - Worker image */}
-          <div className="flex-shrink-0 w-20 h-20 rounded-full overflow-hidden ring-4 ring-white/60 shadow-2xl shadow-primary/20">
-            <Image
-              src="/images/baner.jpeg"
-              alt="Join our workforce"
-              width={80}
-              height={80}
-              className="object-cover w-full h-full scale-110"
-            />
-          </div>
+        {/* Right - Text content */}
+        <div
+          className="flex flex-col justify-between"
+          style={{
+            flex: 1,
+            padding: "12px 16px",
+          }}
+        >
+          {/* Title */}
+          <h3
+            style={{
+              fontFamily: "Inter, sans-serif",
+              fontWeight: 600,
+              fontSize: 16,
+              lineHeight: "100%",
+              letterSpacing: "0%",
+              color: "#1F2937",
+              textAlign: "left",
+            }}
+          >
+            Got a skill? Let it earn.
+          </h3>
 
-          {/* Right side - Text and CTA */}
-          <div className="flex-1">
-            <h3 className="text-base font-semibold text-foreground leading-snug mb-1">
-              Got a skill? Let it earn.
-            </h3>
-            <p className="text-[10px] text-text-secondary mb-3 leading-relaxed">
-              Turn your skills into income.
-            </p>
-            <Link
-              href="/join"
-              className="inline-block px-4 py-2 rounded-lg text-white text-xs font-semibold bg-primary shadow-lg shadow-primary/30 active:shadow-md active:scale-95 transition-all"
-            >
-              Join the FixIt Workforce
-            </Link>
-          </div>
+          {/* Subtitle */}
+          <p
+            style={{
+              fontFamily: "Inter, sans-serif",
+              fontWeight: 400,
+              fontSize: 10,
+              lineHeight: "100%",
+              letterSpacing: "0%",
+              color: "#1F2937",
+              textAlign: "left",
+            }}
+          >
+            Turn your skills into income.
+          </p>
+
+          {/* CTA Button */}
+          <Link
+            href="/join"
+            className="self-start active:scale-95 transition-transform"
+            style={{
+              display: "inline-flex",
+              alignItems: "center",
+              justifyContent: "center",
+              height: 31,
+              borderRadius: 8,
+              padding: "8px 12px",
+              background: "#F97316",
+              fontFamily: "Inter, sans-serif",
+              fontWeight: 400,
+              fontSize: 12,
+              lineHeight: "100%",
+              color: "#F3F4F6",
+            }}
+          >
+            Join the FixIt Workforce
+          </Link>
         </div>
       </div>
     </section>
   );
 }
-

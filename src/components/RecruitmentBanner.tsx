@@ -34,7 +34,7 @@ export default function RecruitmentBanner() {
 
         {/* Right - Text content */}
         <div
-          className="relative z-10 flex flex-col justify-between ml-auto"
+          className="relative z-10 flex flex-col items-start justify-between ml-auto"
           style={{
             width: "60%",
             padding: "12px 16px",
@@ -45,9 +45,8 @@ export default function RecruitmentBanner() {
             style={{
               fontFamily: "Inter, sans-serif",
               fontWeight: 600,
-              fontSize: 16,
-              lineHeight: "100%",
-              letterSpacing: "0%",
+              fontSize: 12,
+              lineHeight: "120%",
               color: "#1F2937",
               textAlign: "left",
             }}
@@ -60,9 +59,8 @@ export default function RecruitmentBanner() {
             style={{
               fontFamily: "Inter, sans-serif",
               fontWeight: 400,
-              fontSize: 10,
+              fontSize: 9,
               lineHeight: "100%",
-              letterSpacing: "0%",
               color: "#1F2937",
               textAlign: "left",
             }}
@@ -73,18 +71,17 @@ export default function RecruitmentBanner() {
           {/* CTA Button */}
           <Link
             href="/join"
-            className="self-start active:scale-95 transition-transform"
+            className="active:scale-95 transition-transform"
             style={{
               display: "inline-flex",
               alignItems: "center",
-              justifyContent: "center",
-              height: 31,
+              height: 28,
               borderRadius: 8,
-              padding: "8px 12px",
+              padding: "6px 12px",
               background: "#F97316",
               fontFamily: "Inter, sans-serif",
               fontWeight: 400,
-              fontSize: 12,
+              fontSize: 10,
               lineHeight: "100%",
               color: "#F3F4F6",
             }}

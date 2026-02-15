@@ -12,10 +12,28 @@ interface WorkerCardProps {
 
 export default function WorkerCard({ name, location, rating, hourlyRate, imageUrl }: WorkerCardProps) {
   return (
-    <div className="min-w-[228px] bg-white rounded-2xl p-5 shadow-lg shadow-black/5 border border-border/50 transition-all active:scale-[0.98] active:shadow-md">
-      <div className="flex items-start gap-4 mb-4">
+    <div
+      className="bg-white active:scale-[0.98] transition-all"
+      style={{
+        width: 228,
+        minWidth: 228,
+        height: 119,
+        borderRadius: 8,
+        padding: "12px 20px",
+        border: "1px solid #1F2937",
+      }}
+    >
+      <div className="flex items-center gap-3 mb-4">
         {/* Worker avatar */}
-        <div className="w-12 h-12 rounded-full bg-gray-200 overflow-hidden flex items-center justify-center flex-shrink-0 ring-2 ring-border/50">
+        <div
+          className="flex-shrink-0 overflow-hidden flex items-center justify-center"
+          style={{
+            width: 48,
+            height: 48,
+            borderRadius: 40,
+            border: "1px solid #1F2937",
+          }}
+        >
           {imageUrl ? (
             <Image
               src={imageUrl}
@@ -25,31 +43,41 @@ export default function WorkerCard({ name, location, rating, hourlyRate, imageUr
               className="w-full h-full object-cover"
             />
           ) : (
-            <svg className="w-7 h-7 text-gray-400" viewBox="0 0 24 24" fill="currentColor">
-              <circle cx="12" cy="8" r="4" />
-              <path d="M6 21v-2a4 4 0 014-4h4a4 4 0 014 4v2" />
-            </svg>
+            <Image
+              src="/icons/default.svg"
+              alt="Default avatar"
+              width={48}
+              height={48}
+              className="w-full h-full object-cover"
+            />
           )}
         </div>
         <div className="flex-1 min-w-0">
-          <h4 className="font-semibold text-base text-foreground truncate mb-0.5">{name}</h4>
-          <p className="text-xs text-text-secondary truncate">{location}</p>
+          <h4 className="font-semibold text-sm text-[#1F2937] truncate">{name}</h4>
+          <p className="text-xs text-[#6B7280] truncate">{location}</p>
         </div>
-        <div className="flex items-center gap-1 bg-tint-100 px-2 py-1 rounded-lg">
-          <HugeiconsIcon icon={StarIcon} size={14} color="var(--star)" fill="var(--star)" />
-          <span className="text-xs font-semibold text-foreground">{rating.toFixed(1)}</span>
+        <div className="flex items-center gap-1">
+          <HugeiconsIcon icon={StarIcon} size={13} color="#1F2937" fill="#1F2937" />
+          <span className="text-xs font-semibold text-[#1F2937]">{rating.toFixed(1)}</span>
         </div>
       </div>
-      <div className="flex items-end justify-between">
-        <div>
-          <div className="flex items-baseline gap-0.5">
-            <span className="text-xl font-bold text-foreground">{hourlyRate}</span>
-            <span className="text-xs text-text-secondary font-medium">Rs/hr</span>
-          </div>
+      <div className="flex items-center justify-between">
+        <div className="flex items-baseline gap-0.5">
+          <span className="text-lg font-bold text-[#1F2937]">{hourlyRate}</span>
+          <span className="text-[10px] text-[#6B7280] font-medium">Rs/hr</span>
         </div>
         <Link
           href="/hire"
-          className="px-3 py-2 rounded-lg text-white text-xs font-semibold bg-primary shadow-md shadow-primary/25 active:shadow-sm active:scale-95 transition-all"
+          className="active:scale-95 transition-all"
+          style={{
+            borderRadius: 8,
+            padding: "6px 12px",
+            background: "#F97316",
+            color: "#F3F4F6",
+            fontSize: 12,
+            fontWeight: 600,
+            fontFamily: "Inter, sans-serif",
+          }}
         >
           Hire for work
         </Link>
@@ -57,4 +85,3 @@ export default function WorkerCard({ name, location, rating, hourlyRate, imageUr
     </div>
   );
 }
-

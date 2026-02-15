@@ -15,21 +15,28 @@ export default function RecruitmentBanner() {
           margin: "0 auto",
         }}
       >
-        {/* Left - Worker photo filling the box */}
-        <div className="relative flex-shrink-0" style={{ width: 120, height: 106 }}>
+        {/* Left - Worker photo with gradient fade */}
+        <div className="absolute left-0 top-0 bottom-0" style={{ width: "55%" }}>
           <Image
             src="/images/baner.jpeg"
             alt="Skilled worker"
             fill
             className="object-cover"
           />
+          {/* Gradient overlay: transparent on left, fades to #FEEED0 on right */}
+          <div
+            className="absolute inset-0"
+            style={{
+              background: "linear-gradient(to right, transparent 20%, #FEEED0 100%)",
+            }}
+          />
         </div>
 
         {/* Right - Text content */}
         <div
-          className="flex flex-col justify-between"
+          className="relative z-10 flex flex-col justify-between ml-auto"
           style={{
-            flex: 1,
+            width: "60%",
             padding: "12px 16px",
           }}
         >
